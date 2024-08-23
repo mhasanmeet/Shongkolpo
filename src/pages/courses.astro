@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import CoursesFilter from "@/components/courses-filter"
+---
+
+<Layout title='Courses'>
+  <div class='container px-4 sm:px-6 lg:px-8 py-5 mb-20'>
+    <h1 class='text-3xl text-center font-bold mb-6'>Courses</h1>
+    <CoursesFilter client:only />
+  </div>
+</Layout>

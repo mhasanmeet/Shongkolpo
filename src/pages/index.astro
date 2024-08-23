@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+import "@/styles/globals.css"
+
+import LandingPage from "../components/landing-page"
+---
+
+<Layout title='Shongkolpo'>
+  <div class='container px-4 sm:px-6 lg:px-8 py-8 mb-20'>
+    <LandingPage client:load />
+  </div>
+</Layout>

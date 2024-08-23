@@ -1,0 +1,25 @@
+---
+import type { Types } from "lib/types/types"
+import Layout from "@/layouts/Layout.astro"
+import ChaptersSection from "@/components/chapters-section"
+
+import { getChaptersByCourseId, getCourseById } from "lib/utils/helpers"
+
+const { courseId } = Astro.params
+
+const course = getCourseById(courseId as Types.ObjectId)
+const chapters = getChaptersByCourseId(courseId as Types.ObjectId)
+---
+
+<Layout title={`${course?.title}`}>
+  <div class='container px-4 sm:px-6 lg:px-8 py-4 mb-20'>
+    <h1 class='text-3xl text-center font-bold mb-6'>{course?.title}</h1>
+    <div class='flex flex-wrap gap-4'>
+      <ChaptersSection
+        client:load
+        courseId={courseId as Types.ObjectId}
+        chapters={chapters || []}
+      />
+    </div>
+  </div>
+</Layout>

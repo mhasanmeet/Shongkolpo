@@ -1,0 +1,20 @@
+---
+import { YouTube } from "astro-embed"
+import type { Types } from "lib/types/types"
+import { getLectureById } from "lib/utils/helpers"
+import { getIdFromYouTubeUrl } from "lib/utils/urlHandler"
+
+const { course, chapterId, lectureId } = Astro.params
+const lecture = getLectureById(lectureId as Types.ObjectId)
+
+const videoId = lecture?.videoUrl
+  ? getIdFromYouTubeUrl(lecture.videoUrl)
+  : "WVKJCfRw6wA"
+---
+
+<YouTube
+  class='w-full mx-auto rounded-md shadow-lg'
+  id={videoId}
+  title={lecture?.title || "Default Video Title"}
+  posterQuality='max'
+/>

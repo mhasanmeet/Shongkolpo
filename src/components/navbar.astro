@@ -1,0 +1,40 @@
+---
+import { Button } from "./ui/button"
+import { Image } from "astro:assets"
+import CourseNavbar from "./course-navbar"
+
+import Logo from "../../public/trans-logo.png"
+---
+
+<nav class='border-b-2 py-2 shadow-sm'>
+  <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <div class='flex items-center justify-between'>
+      <div class='flex items-center'>
+        <a href='/'>
+          <Image
+            src={Logo}
+            alt='Shongkolpo Logo'
+            class='h-8 w-16 sm:h-12 sm:w-24'
+          />
+        </a>
+      </div>
+      <div class='flex items-center gap-3'>
+        <CourseNavbar client:load />
+        <div class='flex items-center gap-2'>
+          <Button
+            variant='outline'
+            className='text-sm sm:text-base hover:bg-[#5FB6BE] hover:text-white rounded-sm'
+          >
+            <a href='/courses'> Courses </a>
+          </Button>
+          <Button
+            variant='outline'
+            className='text-sm sm:text-base hover:bg-[#d31d2d] hover:text-white rounded-sm'
+          >
+            <a href='/lives'> Live </a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

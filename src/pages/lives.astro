@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import LiveClasses from "@/components/live-classes"
+---
+
+<Layout title='Live Classes'>
+  <div class='container px-4 sm:px-6 lg:px-8 py-5 mb-20'>
+    <h1 class='text-3xl text-center font-bold mb-6'>Live Classes</h1>
+    <LiveClasses client:only />
+  </div>
+</Layout>
